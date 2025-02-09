@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Instagram Grid</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background-color: #0a0a0a;
+        }
+
+        header {
+            display: flex;
+            overflow: hidden;
+            height: 400px; /* Adjust height as needed */
+            margin: 0;
+            position: relative;
+        }
+
+        header img {
+            width: 33.33%; /* Divides equally among three images */
+            height: 100%;
+            object-fit: cover;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+            z-index: 1;
+        }
+
+        header h1, header p {
+            position: absolute;
+            z-index: 2;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+            width: 100%;
+            text-align: center;
+            margin: 0;
+        }
+
+        header h1 {
+            font-size: 3.5em; /* Increased font size */
+            top: 50px;
+        }
+
+        header p {
+            font-size: 1.5em; /* Increased font size */
+            top: 130px;
+        }
+
+        section {
+            padding: 30px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .filters {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .filters button {
+            background-color: #ff007f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 1em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .filters button:hover {
+            background-color: #ff4da6;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .gallery iframe {
+            width: 100%;
+            aspect-ratio: 9 / 16;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(255, 0, 127, 0.5);
+        }
+
+        footer {
+            background: #1a1a1a;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: #fff;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer a {
+            margin: 0 10px;
+            color: #ff007f;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- Header Images -->
+        <img src="D:/Ai-Portfolio/website/Asssets/fantasy/18.png" alt="Header Image 1">
+        <img src="D:/Ai-Portfolio/website/Asssets/fantasy/19.png" alt="Header Image 2">
+        <img src="D:/Ai-Portfolio/website/Asssets/fantasy/20.png" alt="Header Image 3">
+
+        <!-- Header Text -->
+        <h1>AI Influencer</h1>
+        <p>Discover Creativity Through Instagram</p>
+    </header>
+
+    <section>
+        <div class="filters">
+            <button data-filter="all">All</button>
+            <button data-filter="reel">Reels</button>
+            <button data-filter="post">Posts</button>
+        </div>
+
+        <div class="gallery">
+            <iframe class="reel" src="https://www.instagram.com/reel/DFcsWTAM5wd/embed" allowfullscreen></iframe>
+            <iframe class="reel" src="https://www.instagram.com/reel/DFDvC3YSnk1/embed" allowfullscreen></iframe>
+            <iframe class="reel" src="https://www.instagram.com/reel/DEH4LOcS41g/embed" allowfullscreen></iframe>
+            <iframe class="reel" src="https://www.instagram.com/reel/DD4b9BiyKGf/embed" allowfullscreen></iframe>
+            <iframe class="reel" src="https://www.instagram.com/reel/DDkKNq3Sooz/embed" allowfullscreen></iframe>
+            <iframe class="reel" src="https://www.instagram.com/reel/DDPMZ_ESAu5/embed" allowfullscreen></iframe>
+            <iframe class="reel" src="https://www.instagram.com/reel/DCwT9UmMaeQ/embed" allowfullscreen></iframe>
+            <iframe class="reel" src="https://www.instagram.com/reel/DCrKVOiyly1/embed" allowfullscreen></iframe>
+
+            <!-- Posts -->
+            <iframe class="post" src="https://www.instagram.com/p/DFSBs0jyDk3/embed" allowfullscreen></iframe>
+            <iframe class="post" src="https://www.instagram.com/p/DDCTRuPzJd1/embed" allowfullscreen></iframe>
+            <iframe class="post" src="https://www.instagram.com/p/DA24-TtyVt7/embed" allowfullscreen></iframe>
+            <iframe class="post" src="https://www.instagram.com/reel/DCO0GdByvY2/embed" allowfullscreen></iframe>
+        
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 AI Creations. All rights reserved.</p>
+        <a href="https://www.linkedin.com/in/anushka-anand-155a8b1b1/">LinkedIn</a>
+    </footer>
+
+    <script>
+        const buttons = document.querySelectorAll('.filters button');
+        const iframes = document.querySelectorAll('.gallery iframe');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+                iframes.forEach(iframe => {
+                    if (filter === 'all' || iframe.classList.contains(filter)) {
+                        iframe.style.display = 'block';
+                    } else {
+                        iframe.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        buttons[0].click();
+    </script>
+</body>
+</html>

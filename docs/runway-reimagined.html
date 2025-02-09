@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Runway Reimagined</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background-color: #0a0a0a;
+        }
+        header {
+            position: relative;
+            background: url('D:/Ai-Portfolio/website/Asssets/Runway/1.png') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* Add a dark overlay for text visibility */
+            z-index: 1;
+        }
+        header h1, header p {
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            animation: fade-in 1s ease-in-out forwards;
+            opacity: 0;
+        }
+        header h1 {
+            font-size: 3.5em;
+            margin: 0;
+            color: #ff007f;
+        }
+        header p {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        section {
+            padding: 30px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .gallery video {
+            width: 100%;
+            aspect-ratio: 9 / 16; /* Maintain 9:16 Portrait Aspect Ratio */
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(255, 0, 127, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 3px solid #ff007f;
+            object-fit: cover;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fade-up 0.8s ease-in-out forwards;
+        }
+        .gallery video:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 6px 12px rgba(255, 0, 127, 0.7);
+        }
+        .youtube-link {
+            display: block;
+            text-align: center;
+            margin: 30px 0;
+            font-size: 1.3em;
+            color: #ff007f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .youtube-link:hover {
+            color: #ff4da6;
+        }
+        footer {
+            background: #1a1a1a;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: #fff;
+        }
+        footer p {
+            margin: 0;
+        }
+        footer a {
+            margin: 0 10px;
+            color: #ff007f;
+            text-decoration: none;
+        }
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fade-up {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 480px) {
+            .gallery {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Runway Reimagined</h1>
+        <p>Fashion powered by AI – Revolutionizing the runway</p>
+    </header>
+
+    <section>
+        <div class="gallery">
+            <!-- 8 Runway-Themed Videos -->
+            <video autoplay muted loop playsinline>
+                <source src="D:/Ai-Portfolio/website/Asssets/Runway/V8.mp4" type="video/mp4">
+            </video>
+            <video autoplay muted loop playsinline>
+                <source src="D:/Ai-Portfolio/website/Asssets/Runway/V1.mp4" type="video/mp4">
+            </video>
+            <video autoplay muted loop playsinline>
+                <source src="D:/Ai-Portfolio/website/Asssets/Runway/V2.mp4" type="video/mp4">
+            </video>
+            <video autoplay muted loop playsinline>
+                <source src="D:/Ai-Portfolio/website/Asssets/Runway/V3.mp4" type="video/mp4">
+            </video>
+            <video autoplay muted loop playsinline>
+                <source src="D:/Ai-Portfolio/website/Asssets/Runway/V4.mp4" type="video/mp4">
+            </video>
+            <video autoplay muted loop playsinline>
+                <source src="D:/Ai-Portfolio/website/Asssets/Runway/V5.mp4" type="video/mp4">
+            </video>
+            <video autoplay muted loop playsinline>
+                <source src="D:/Ai-Portfolio/website/Asssets/Runway/V6.mp4" type="video/mp4">
+            </video>
+            <video autoplay muted loop playsinline>
+                <source src="D:/Ai-Portfolio/website/Asssets/Runway/V7.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        
+    </section>
+
+    <footer>
+        <p>&copy; 2024 AI Creations. All rights reserved.</p>
+        <a href="https://www.linkedin.com/in/anushka-anand-155a8b1b1/">LinkedIn</a>
+    </footer>
+</body>
+</html>

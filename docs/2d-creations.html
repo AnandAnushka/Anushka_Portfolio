@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Creations</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background-color: #0a0a0a;
+        }
+        header {
+            position: relative;
+            background: url('D:/Ai-Portfolio/website/Asssets/2d/2.png') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6); /* Add a dark overlay */
+            z-index: 1;
+        }
+        header h1, header p {
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+        }
+        header h1 {
+            font-size: 3.5em;
+            margin: 0;
+            color: #ff007f;
+        }
+        header p {
+            font-size: 1.5em;
+            margin: 15px 0 0;
+        }
+        section {
+            padding: 40px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .gallery img, .gallery video {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(255, 0, 127, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+            object-fit: contain;
+            cursor: pointer;
+        }
+        .gallery video {
+            aspect-ratio: 9 / 16; /* Ensure 9:16 Portrait Aspect Ratio */
+            border: 3px solid #ff007f;
+        }
+        .gallery img {
+            aspect-ratio: 9 / 16; /* Ensure 9:16 Portrait Aspect Ratio */
+        }
+        .gallery img:hover, .gallery video:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 8px 15px rgba(255, 0, 127, 0.7);
+        }
+        .youtube-link {
+            display: block;
+            text-align: center;
+            margin: 40px 0;
+            font-size: 1.5em;
+            color: #ff007f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .youtube-link:hover {
+            color: #ff4da6;
+        }
+        footer {
+            background: #1a1a1a;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: #fff;
+        }
+        footer p {
+            margin: 0;
+        }
+        footer a {
+            margin: 0 10px;
+            color: #ff007f;
+            text-decoration: none;
+        }
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal img, .modal video {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+        .modal video {
+            object-fit: contain;
+            border: 3px solid #ff007f;
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2em;
+            color: white;
+            cursor: pointer;
+            z-index: 1001;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>2D Creations</h1>
+        <p>A showcase of my best 2D artwork</p>
+    </header>
+
+    <section>
+        <div class="gallery">
+            <!-- Images -->
+            <img src="D:/Ai-Portfolio/website/Asssets/2d/1.png" alt="2D Artwork 1">
+            <img src="D:/Ai-Portfolio/website/Asssets/2d/15.png" alt="2D Artwork 2">
+            <img src="D:/Ai-Portfolio/website/Asssets/2d/16.png" alt="2D Artwork 3">
+            <img src="D:/Ai-Portfolio/website/Asssets/2d/18.png" alt="2D Artwork 4">
+
+            <!-- Videos -->
+            <video muted autoplay loop>
+                <source src="D:/Ai-Portfolio/website/Asssets/2d/V1.mp4" type="video/mp4">
+            </video>
+            <video muted autoplay loop>
+                <source src="D:/Ai-Portfolio/website/Asssets/2d/V2.mp4" type="video/mp4">
+            </video>
+            <video muted autoplay loop>
+                <source src="D:/Ai-Portfolio/website/Asssets/2d/V3.mp4" type="video/mp4">
+            </video>
+            <video muted autoplay loop>
+                <source src="D:/Ai-Portfolio/website/Asssets/2d/V4.mp4" type="video/mp4">
+            </video>
+            <video muted autoplay loop>
+                <source src="D:/Ai-Portfolio/website/Asssets/2d/V5.mp4" type="video/mp4">
+            </video>
+            <video muted autoplay loop>
+                <source src="D:/Ai-Portfolio/website/Asssets/2d/V6.mp4" type="video/mp4">
+            </video>
+            <video muted autoplay loop>
+                <source src="D:/Ai-Portfolio/website/Asssets/2d/V7.mp4" type="video/mp4">
+            </video>
+            <video muted autoplay loop>
+                <source src="D:/Ai-Portfolio/website/Asssets/2d/V8.mp4" type="video/mp4">
+            </video>
+            <video muted autoplay loop>
+                <source src="D:/Ai-Portfolio/website/Asssets/2d/V9.mp4" type="video/mp4">
+            </video>
+            <video muted autoplay loop>
+                <source src="D:/Ai-Portfolio/website/Asssets/2d/V10.mp4" type="video/mp4">
+            </video>
+
+            <video muted autoplay loop>
+                <source src="D:/Ai-Portfolio/website/Asssets/2d/V11.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <span class="modal-close" id="modal-close">&times;</span>
+        <img id="modal-content-img" style="display: none;">
+        <video id="modal-content-video" controls autoplay muted loop style="display: none;"></video>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 AI Creations. All rights reserved.</p>
+        <a href="https://www.linkedin.com/in/anushka-anand-155a8b1b1/">LinkedIn</a>
+    </footer>
+
+    <script>
+        const modal = document.getElementById("modal");
+        const modalImg = document.getElementById("modal-content-img");
+        const modalVideo = document.getElementById("modal-content-video");
+        const modalClose = document.getElementById("modal-close");
+
+        document.querySelectorAll(".gallery img, .gallery video").forEach(item => {
+            item.addEventListener("click", () => {
+                modal.style.display = "flex";
+
+                if (item.tagName === "IMG") {
+                    modalImg.src = item.src;
+                    modalImg.style.display = "block";
+                    modalVideo.style.display = "none";
+                } else if (item.tagName === "VIDEO") {
+                    modalVideo.src = item.querySelector("source").src;
+                    modalVideo.style.display = "block";
+                    modalImg.style.display = "none";
+                }
+            });
+        });
+
+        modalClose.addEventListener("click", () => {
+            modal.style.display = "none";
+            modalImg.src = "";
+            modalVideo.src = "";
+        });
+
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+                modalImg.src = "";
+                modalVideo.src = "";
+            }
+        });
+    </script>
+</body>
+</html>

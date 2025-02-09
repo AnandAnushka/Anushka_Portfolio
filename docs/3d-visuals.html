@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Map</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background-color: #0a0a0a;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            overflow-y: auto; /* Allow vertical scrolling if necessary */
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(to right, rgba(210, 0, 127, 0.7), rgba(100, 10, 10, 0.7));
+
+            position: relative;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #ddd;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('D:/Ai-Portfolio/website/Asssets/header-bg.png') no-repeat center/cover;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        /* Map & Nodes */
+        #map-container {
+            position: relative;
+            height: 100vh; /* Full screen height */
+            width: 100vw; /* Full screen width */
+            background: url('D:/Ai-Portfolio/website/Asssets/brand/bg.png') no-repeat center center;
+            background-size: cover; /* Make background fully cover the container */
+            overflow: hidden; /* Prevent any internal scrolling */
+        }
+
+        .node {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: rgba(300, 255, 255, 60); /* White Bright Nodes */
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(30, 255, 255, 1); /* Bright white glow */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .node:hover {
+            transform: scale(1.5);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 1); /* Stronger white glow on hover */
+        }
+
+        .node::after {
+            content: attr(data-name);
+            position: absolute;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8em;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 5px 10px;
+            border-radius: 5px;
+            white-space: nowrap;
+        }
+
+
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 10;
+        }
+
+        .modal h2 {
+            margin-bottom: 20px;
+        }
+
+        .modal .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 90%;
+        }
+
+        .modal video, .modal img {
+            width: 100%;
+            max-width: 300px;
+            aspect-ratio: 9 / 16;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(255, 0, 127, 0.5);
+            border: 3px solid rgba(255, 0, 127, 0.8);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2em;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Brand Map</h1>
+        <p>Explore our collaborative branding efforts</p>
+    </header>
+   
+
+
+    <div id="map-container">
+   
+        <!-- Nodes -->
+        <div class="node" data-name="Havemore" style="top: 0%; left: 16.3%;" data-target="havemore-modal"></div>
+        <div class="node" data-name="Kit Kat" style="top: 20%; left: 26.5%;" data-target="kitkat-modal"></div>
+        <div class="node" data-name="Fanstore" style="top: 29%; left: 43%;" data-target="fanstore-modal"></div>
+        <div class="node" data-name="Aietur" style="top: 19%; left: 58.5%;" data-target="aietur-modal"></div>
+        <div class="node" data-name="Fab India" style="top: 52%; left: 8.5%;" data-target="fabindia-modal"></div>
+        <div class="node" data-name="Gold's Gym" style="top: 1%; left: 82%;" data-target="goldgym-modal"></div>
+        <div class="node" data-name="Modern Chips" style="top: 44.5%; left: 59%;" data-target="modernchips-modal"></div>
+        <div class="node" data-name="Bobble" style="top: 22%; left: 78%;" data-target="bobble-modal"></div>
+        <div class="node" data-name="Gulabri" style="top: 52%; left: 90.5%;" data-target="gulabri-modal"></div>
+        <div class="node" data-name="Mockups" style="top: -2%; left: 53%;" data-target="mockup-modal"></div>
+
+    </div>
+
+    <!-- Modals for All Brands -->
+    <div class="modal" id="havemore-modal">
+        <span class="modal-close">&times;</span>
+        <h2>Havemore</h2>
+        <div class="content">
+            <img src="D:/Ai-Portfolio/website/Asssets/brand/havmore (1).png" alt="Havemore 1">
+            <img src="D:/Ai-Portfolio/website/Asssets/brand/havmore (2).png" alt="Havemore 2">
+            <img src="D:/Ai-Portfolio/website/Asssets/brand/havmore (3).png" alt="Havemore 3">
+        </div>
+    </div>
+
+    <div class="modal" id="mockup-modal">
+    <span class="modal-close">&times;</span>
+    <h2>Mockups</h2>
+    <div class="content mockup-content">
+        <video src="D:/Ai-Portfolio/website/Asssets/brand/coke.mp4" autoplay loop muted></video>
+        <video src="D:/Ai-Portfolio/website/Asssets/brand/food.mp4" autoplay loop muted></video>
+        <video src="D:/Ai-Portfolio/website/Asssets/brand/head.mp4" autoplay loop muted></video>
+        <video src="D:/Ai-Portfolio/website/Asssets/brand/head (2).mp4" autoplay loop muted></video>
+        <video src="D:/Ai-Portfolio/website/Asssets/brand/work.mp4" autoplay loop muted></video>
+    </div>
+</div>
+
+<style>
+/* Specific styling for the mockup modal */
+.mockup-content {
+    display: flex; /* Ensures items are placed in a single row */
+    justify-content: space-between; /* Adds equal spacing between items */
+    align-items: center; /* Vertically aligns items */
+    gap: 10px; /* Adds space between items */
+    overflow-x: hidden; /* Ensures no horizontal scroll */
+    max-width: 90%; /* Limits content width to fit within modal */
+    margin: 0 auto; /* Centers the row */
+    padding: 10px; /* Adds padding for better appearance */
+}
+
+.mockup-content video {
+    width: 270px; /* Set width for all videos */
+    height: auto; /* Adjust height proportionally */
+    border-radius: 0px; /* Rounded corners for videos */
+    box-shadow: 0 4px 6px rgba(255, 0, 127, 0.5); /* Shadow effect */
+    flex-shrink: 0; /* Prevents videos from shrinking */
+}
+</style>
+
+
+
+   <div class="modal" id="kitkat-modal">
+        <span class="modal-close">&times;</span>
+        <h2>Kit Kat</h2>
+        <div class="content">
+            <video src="D:/Ai-Portfolio/website/Asssets/brand/kitkat (1).mp4" autoplay loop muted></video>
+            <video src="D:/Ai-Portfolio/website/Asssets/brand/kitkat (2).mp4" autoplay loop muted></video>
+            <video src="D:/Ai-Portfolio/website/Asssets/brand/kitkat (3).mp4" autoplay loop muted></video>
+        </div>
+    </div>
+
+    <div class="modal" id="fanstore-modal">
+        <span class="modal-close">&times;</span>
+        <h2>Fanstore</h2>
+        <div class="content">
+            <video src="D:/Ai-Portfolio/website/Asssets/brand/fanstore  (1).mp4" autoplay loop muted></video>
+            <video src="D:/Ai-Portfolio/website/Asssets/brand/fanstore  (2).mp4" autoplay loop muted></video>
+            <video src="D:/Ai-Portfolio/website/Asssets/brand/fanstore  (3).mp4" autoplay loop muted></video>
+            <video src="D:/Ai-Portfolio/website/Asssets/brand/fanstore  (4).mp4" autoplay loop muted></video>
+        </div>
+    </div>
+
+    <div class="modal" id="gulabri-modal">
+        <span class="modal-close">&times;</span>
+        <h2>Gulabri</h2>
+        <div class="content">
+            <video src="D:/Ai-Portfolio/website/Asssets/brand/gulabri.mp4" autoplay loop muted></video>
+            <img src="D:/Ai-Portfolio/website/Asssets/brand/gulabri.png" alt="Gulabri Image">
+            <img src="D:/Ai-Portfolio/website/Asssets/brand/gulabri.gif" alt="Gulabri GIF">
+        </div>
+    </div>
+
+    <div class="modal" id="fabindia-modal">
+        <span class="modal-close">&times;</span>
+        <h2>FabIndia</h2>
+        <div class="content">
+            <video src="D:/Ai-Portfolio/website/Asssets/brand/fabindia.mp4" autoplay loop muted></video>
+        </div>
+    </div>
+
+    <div class="modal" id="goldgym-modal">
+        <span class="modal-close">&times;</span>
+        <h2>Gold's Gym</h2>
+        <div class="content">
+            <video src="D:/Ai-Portfolio/website/Asssets/brand/goldsgym.mp4" autoplay loop muted></video>
+        </div>
+    </div>
+
+    <div class="modal" id="modernchips-modal">
+        <span class="modal-close">&times;</span>
+        <h2>Modern Chips</h2>
+        <div class="content">
+            <video src="D:/Ai-Portfolio/website/Asssets/brand/modern chips.mp4" autoplay loop muted></video>
+        </div>
+    </div>
+
+    <div class="modal" id="bobble-modal">
+        <span class="modal-close">&times;</span>
+        <h2>Bobble AI</h2>
+        <div class="content">
+            <video src="D:/Ai-Portfolio/website/Asssets/brand/bobble.mp4" autoplay loop muted></video>
+        </div>
+    </div>
+
+    <div class="modal" id="aietur-modal">
+        <span class="modal-close">&times;</span>
+        <h2>Aietur</h2>
+        <div class="content">
+            <video src="D:/Ai-Portfolio/website/Asssets/brand/aiteur.mp4" autoplay loop muted></video>
+        </div>
+    </div>
+
+<script>
+    // Open modal when clicking a node
+    document.querySelectorAll('.node').forEach(node => {
+        node.addEventListener('click', () => {
+            const target = document.getElementById(node.getAttribute('data-target'));
+            if (target) target.style.display = 'flex';
+        });
+    });
+
+    // Close modal when clicking the close button
+    document.querySelectorAll('.modal-close').forEach(button => {
+        button.addEventListener('click', () => {
+            const modal = button.parentElement;
+            closeModal(modal);
+        });
+    });
+
+    // Close modal when clicking outside the modal content
+    document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                closeModal(modal);
+            }
+        });
+    });
+
+    // Function to close modal & stop/reset videos
+    function closeModal(modal) {
+        modal.style.display = 'none';
+
+        // Pause and reset all videos in the modal
+        modal.querySelectorAll("video").forEach(video => {
+            video.pause();
+            video.currentTime = 0; // Reset video to start position
+        });
+    }
+
+    // Enable play/pause controls for all videos
+    document.querySelectorAll('.modal video').forEach(video => {
+        video.controls = true;
+
+        // Play/Pause toggle on video click
+        video.addEventListener('click', () => {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+    });
+</script>
